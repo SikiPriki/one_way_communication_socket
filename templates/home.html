@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+   <h3>home</h3>
+   
+    <div class="messages" id="messages"></div>
+    <script type="text/javascript">
+        var socketio = io();
+
+        const messages=document.getElementById("messages")
+        const createMessage=(msg)=>{
+            console.log("IN HOME")
+            const content=`
+            <div class="text">
+                <span>    
+                    <strong>${msg}</strong>: 
+                </span>
+            </div>
+            `
+            messages.innerHTML+=content
+        }
+        socketio.on("message",(data)=>{
+            console.log(data)
+           // console.log(data.message)
+            createMessage(data)
+        })
+
+    </script>
+  
+
+{% for msg in messages %}
+
+    <script  type="text/javascript">
+        createMessage('{{msg.messages}}')
+        console.log("eh")
+    </script>
+
+{% endfor %} 
+{% endblock %}
