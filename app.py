@@ -8,7 +8,7 @@ from flask_socketio import  SocketIO
 
 
 app=Flask(__name__)
-app.config["SECRET_KEY"]="sdjkfalksd223sdas"
+#app.config["SECRET_KEY"]="sdjkfalksd223sdas"
 socketio=SocketIO(app)
 
 
@@ -26,8 +26,7 @@ def message(data):
     socketio.send(data["data"])
     
     
-    
-@app.route("/", methods=["GET","POST"])
+@app.route("/") #methods=["GET","POST"])
 def home():
     return render_template('home.html')
 

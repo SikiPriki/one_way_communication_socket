@@ -17,7 +17,7 @@
                 </span>
             </div>
             `
-            messages.innerHTML+=content
+            messages.innerHTML+=content//change only to message.innerHTML=content if you want to have only just written word/sentence
         }
         socketio.on("message",(data)=>{
             console.log(data)
