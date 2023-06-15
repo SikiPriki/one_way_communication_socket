@@ -1,34 +1,16 @@
 {% extends 'base.html' %}
 {%  block content %}
 <div class="message-box">
-    <h2>Button: {{code}} </h2>
+    <h2>Button </h2>
     <div class="join">
-        <input type="text" placeholder="Room Code" id="code" name="code" />
-        <button type="submit" name="join" onClick="sendMessage()">Join a Room</button>
+        <input type="text" placeholder="Write something." id="code" name="code" />
+        <button type="submit" name="join" onClick="sendMessage()">Send</button>
     </div>
 </div>
 <script type="text/javascript">
     var socketio = io();
 
-    const messages=document.getElementById("messages")
-   /*  const createMessage=(msg)=>{
-        const content=`
-        <div class="text">
-            <span>    
-                <strong>${msg}</strong>: 
-            </span>
-            <span class="muted">    
-                ${new Date().toLocaleDateString()}
-            </span>
-        </div>
-        
-        `
-        messages.innerHTML+=content
-    } 
-    socketio.on("message",(data)=>{
-        console.log(data.message)
-        createMessage(data.message)
-    })*/
+   // const messages=document.getElementById("messages")
 
     const sendMessage = ()=>{
         const message = document.getElementById("code")
